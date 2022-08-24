@@ -1,7 +1,11 @@
 {
   "name": "vue-file-input",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "private": false,
+  "description": "## Project setup ``` npm install ```",
+  "main": "dist/js/app.cc5d2926.js",
+  "author": "",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -18,6 +22,7 @@
     "@vue/cli-plugin-eslint": "~4.5.15",
     "@vue/cli-service": "~4.5.15",
     "babel-eslint": "^10.1.0",
+    "bootstrap": "^4.4.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
@@ -40,9 +45,6 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "description": "## Project setup ``` npm install ```",
-  "main": "babel.config.js",
-  "author": "",
-  "license": "MIT"
+  ]
+
 }
