@@ -1,50 +1,51 @@
 {
   "name": "vue-file-input",
-  "version": "0.1.1",
-  "private": false,
-  "description": "## Project setup ``` npm install ```",
-  "main": "dist/js/app.cc5d2926.js",
-  "author": "",
-  "license": "MIT",
+  "version": "0.1.8",
+  "description": "",
+  "main": "dist/vue-file-input.ssr.js",
+  "browser": "dist/vue-file-input.esm.js",
+  "module": "dist/vue-file-input.esm.js",
+  "unpkg": "dist/vue-file-input.min.js",
+  "files": [
+    "dist/*",
+    "src/**/*.vue",
+    "src/**/*.css"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve dev/serve.js",
+    "prebuild": "rimraf ./dist",
+    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+    "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
+    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "commander": "^9.4.0",
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "bootstrap": "^4.4.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.15",
-    "@vue/cli-plugin-eslint": "~4.5.15",
-    "@vue/cli-service": "~4.5.15",
-    "babel-eslint": "^10.1.0",
-    "bootstrap": "^4.4.1",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-replace": "^2.4.2",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "cross-env": "^7.0.3",
+    "minimist": "^1.2.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.52.8",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-vue": "^5.1.9",
+    "vue": "^2.6.14",
+    "vue-template-compiler": "^2.6.14"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
+  "peerDependencies": {
+    "vue": "^2.6.14"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
-
+  "engines": {
+    "node": ">=12"
+  }
 }
