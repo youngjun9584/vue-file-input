@@ -17,7 +17,7 @@
                     <button 
                             type="button" 
                             class="btn btn-outline-secondary btn-sm" 
-                            style="float: right;"
+                            style="float: right; border-color: #6c757d;"
                             @click="deleteFileArray(index)"
                     >
                         X
@@ -43,8 +43,7 @@
 </template>
 
 <script>
-// import './bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import './bootstrap_file_input.css';
 
 export default {
     name: '',

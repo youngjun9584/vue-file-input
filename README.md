@@ -52,7 +52,7 @@ export default {
 | Property name | Type      | Default   | Required |Description                                                                                         |
 | ------------- | --------- | --------- | -------- | -------------------------------------------------------------------------------------------------- |
 | fileCount          | `Number`  | `5`         | ❌         |제한하는 파일갯수|
-| filelimitSizeByte         | `Number`  | `10485760`         | ❌        | 제한하는 파일 크기|
+| filelimitSizeByte         | `Number`  | `10485760`         | ❌        | 제한하는 파일 크기(kb)|
 | horizontal   | `Boolean`  | `false` | ❌        | 파일 리스트를 수평,수직으로 보여주는 설정 |
 | getFileInfoArray     | `function` | ❌   | ✅       | 첨부파일 데이터를 배열로 리턴하는 함수|
 
