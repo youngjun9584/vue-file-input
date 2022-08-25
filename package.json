@@ -1,15 +1,37 @@
 {
   "name": "vue-file-input",
-  "version": "0.1.8",
-  "description": "",
+  "version": "0.2.1",
+  "description": "파일 업로드시 해당 파일리스트를 보여주는 vue component 입니다., 기능은 갯수 제한, 크기제한 할수 있도록 만들었음",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youngjun9584/vue-file-input.git"
+  },
+  "keywords": [
+    "vue",
+    "vue-upload",
+    "vue-upload-component",
+    "vue-file-upload-component",
+    "vue-progress",
+    "bootstrap4",
+    "file-upload",
+    "uploader",
+    "file-uploader",
+    "image-uploader",
+    "file-picker",
+    "file",
+    "upload",
+    "input",
+    "multi"
+  ],
+  "license": "MIT",
   "main": "dist/vue-file-input.ssr.js",
   "browser": "dist/vue-file-input.esm.js",
   "module": "dist/vue-file-input.esm.js",
   "unpkg": "dist/vue-file-input.min.js",
   "files": [
     "dist/*",
-    "src/**/*.vue",
-    "src/**/*.css"
+    "src/**/*.vue"
   ],
   "sideEffects": false,
   "scripts": {

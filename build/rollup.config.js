@@ -9,6 +9,9 @@ import replace from '@rollup/plugin-replace';
 import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
+import postcss from 'rollup-plugin-postcss';
+import cssimport from 'postcss-import';
+import autoprefixer from 'autoprefixer';
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs.readFileSync('./.browserslistrc')
@@ -42,20 +45,39 @@ const baseConfig = {
       preventAssignment: true,
     },
     vue: {
-      css: true,
+      css: false,//Dynamically inject css as a <style> tag
+      preprocessStyles: true,
+      compileTemplate: true, 
+      style: {
+          postcssCleanOptions: {
+              disable: true,
+          },
+          preprocessOptions: {
+            sass: {
+                  includePaths: ['./node_modules'],
+              },
+          },
+      },
       template: {
-        isProduction: true,
+        transformAssetUrls: true,
       },
     },
     postVue: [
       resolve({
-        extensions: ['.js', '.css', '.jsx', '.ts', '.tsx', '.vue'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
       }),
+      postcss({
+        extract: true,
+        config: {
+            path: './postcss.config',
+        },
+        plugins: [cssimport(), autoprefixer()],
+    }),
       commonjs(),
     ],
     babel: {
       exclude: 'node_modules/**',
-      extensions: ['.js', '.css', '.jsx', '.ts', '.tsx', '.vue'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
       babelHelpers: 'bundled',
     },
   },

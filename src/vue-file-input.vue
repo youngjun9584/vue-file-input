@@ -43,6 +43,9 @@
 </template>
 
 <script>
+// import './bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 export default {
     name: '',
     components: 
@@ -179,8 +182,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-@import './bootstrap.css';
-</style>
-
