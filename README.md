@@ -1,7 +1,8 @@
 ## 정의
-vue-file-input는 첨부파일에 대한 리스트를 보여주는 vue-component 입니다. vue2와 bootstrap4에 dependencies 가 있음 주의 바랍니다.
- - 첨부파일 데이터를 배열로 리턴
- - 파일사이즈 및 파일갯수를 제한 할 수 있음
+vue-file-input is a vue-component that displays a list of attachments. Please note that vue2 and bootstrap4 have dependencies.
+ - Return the attachment data as an array
+ - File size and number of files can be limited
+ - English and Korean support
 
 
 ![결과화면](img/screenshot.PNG)
@@ -21,6 +22,7 @@ npm install vue-file-input
     :filelimitSizeByte = 10485760
     @getFileInfoArray = "fromFileInfoArray"
     :horizontal = true
+    :language = 'ko'
   ></vueFileInput>
 </template>
 
@@ -51,10 +53,11 @@ export default {
 #### Properties
 | Property name | Type      | Default   | Required |Description                                                                                         |
 | ------------- | --------- | --------- | -------- | -------------------------------------------------------------------------------------------------- |
-| fileCount          | `Number`  | `5`         | ❌         |제한하는 파일갯수|
-| filelimitSizeByte         | `Number`  | `10485760`         | ❌        | 제한하는 파일 크기(kb)|
-| horizontal   | `Boolean`  | `false` | ❌        | 파일 리스트를 수평,수직으로 보여주는 설정 |
-| getFileInfoArray     | `function` | ❌   | ✅       | 첨부파일 데이터를 배열로 리턴하는 함수|
+| fileCount          | `Number`  | `5`         | ❌         |limit number of files|
+| filelimitSizeByte         | `Number`  | `10485760`         | ❌        | Limiting file size (kb)|
+| horizontal   | `Boolean`  | `false` | ❌        | Setting to display the file list horizontally and vertically |
+| getFileInfoArray     | `function` | ❌   | ✅       | Function that returns attachment data as an array|
+| language     | `string` | `en`   | ❌      | English and Korean support|
 
 ----
 ### License

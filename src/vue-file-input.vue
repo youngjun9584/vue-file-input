@@ -7,7 +7,7 @@
     <div>
         <div class="custom-file" style="margin-bottom: 20px;">
             <input type="file" class="custom-file-input" ref='fileInfoArray' id="validatedCustomFile" @change='bindFileData()' multiple :disabled = "fileInfoArray.length> fileCount-1" >
-            <label class="custom-file-label" for="validatedCustomFile">첨부파일 추가</label>
+            <label class="custom-file-label" for="validatedCustomFile">{{languageInfo[language].inputLabel}}</label>
         </div>
         <ul class="list-group" :class="{'list-group-horizontal':horizontal}" style="margin-bottom: 15px;">
             <li class="list-group-item" v-for="(fileInfoArray , index) in fileInfoArray" :key="index">
@@ -38,7 +38,7 @@
                 {{formatByteSizeString(fileSumByte, 2)}}
             </div>
         </div>
-        <small class="form-text text-muted">-첨부파일은 최대 {{fileCount}}개, {{formatByteSizeString(filelimitSizeByte, 2)}}까지 등록 가능합니다.</small>
+        <small class="form-text text-muted">{{languageInfo[language].text}}</small>
     </div>
 </template>
 
@@ -68,14 +68,37 @@ export default {
 		horizontal:
 		{
 			type: Boolean,
-			default: () => (false)
+			default: () => (true)
+        },
+        //단일컴포넌트 언어
+		language:
+		{
+			type: String,
+			default: () => ('en')
         },
     },
     data(){
         return {
             fileInfoArray:[],
             fileSumByte:0,
-            progressBarPercentage: 0
+            progressBarPercentage: 0,
+            languageInfo:
+            {
+                ko:
+                {
+                    inputLabel:'첨부파일 추가',
+                    text:`-첨부파일은 최대 ${this.fileCount}개, ${this.formatByteSizeString(this.filelimitSizeByte, 2)}까지 등록 가능합니다.`,
+                    maxAlert:`파일갯수는 최대 ${this.fileCount}개 입니다.`,
+                    maxSizeAlert: `${this.formatByteSizeString(this.filelimitSizeByte, 2)}가 이상 입니다.`
+                },
+                en:
+                {
+                    inputLabel:'file input',
+                    text:`-file limit ${this.fileCount} count, ${this.formatByteSizeString(this.filelimitSizeByte, 2)} size `,
+                    maxAlert:`file max ${this.fileCount} count`,
+                    maxSizeAlert: `file size limit ${this.formatByteSizeString(this.filelimitSizeByte, 2)}`
+                }
+            }
         }
     },
     computed:
@@ -101,7 +124,7 @@ export default {
             }
             else
             {
-                alert(`${this.formatByteSizeString(this.filelimitSizeByte, 2)}가 이상 입니다.`)
+                alert(this.languageInfo[this.language].maxSizeAlert)
                 this.deleteFileArray(this.fileInfoArray.length-1);
             }
             this.sendFileInfoArray();
@@ -134,7 +157,7 @@ export default {
                 }
                 else
                 {
-                    alert(`파일갯수는 최대 ${this.fileCount}개 입니다.`)
+                    alert(this.languageInfo[this.language].maxAlert)
                     break;
                 }
             }

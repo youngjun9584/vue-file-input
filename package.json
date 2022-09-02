@@ -1,6 +1,6 @@
 {
   "name": "vue-file-input",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "파일 업로드시 해당 파일리스트를 보여주는 vue component 입니다., 기능은 갯수 제한, 크기제한 할수 있도록 만들었음",
   "readmeFilename": "README.md",
   "repository": {

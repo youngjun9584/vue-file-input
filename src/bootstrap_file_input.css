@@ -213,6 +213,9 @@ button {
     border-radius: 0;
 }
 
+.list-group-horizontal {
+    flex-direction: row;
+}
 /* progress */
 .progress {
     display: flex;
