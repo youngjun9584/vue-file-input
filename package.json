@@ -1,7 +1,7 @@
 {
   "name": "vue-file-input",
-  "version": "0.2.2",
-  "description": "파일 업로드시 해당 파일리스트를 보여주는 vue component 입니다., 기능은 갯수 제한, 크기제한 할수 있도록 만들었음",
+  "version": "0.2.4",
+  "description": "vue-file-input is a vue-component that displays a list of attachments",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
